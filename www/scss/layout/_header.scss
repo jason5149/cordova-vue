@@ -1,0 +1,10 @@
+@import '../base/_variable';
+@import '../helpers/_mixin';
+.xg-header-container {
+    width: $max-size;
+    height: 2rem;
+    color: $color-white;
+    background-color: $color-theme-1;
+    @include layout-vertical-center;
+    @include set-index-level(7);
+}

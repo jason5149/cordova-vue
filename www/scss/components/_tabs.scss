@@ -1,0 +1,65 @@
+@import '../base/_variable';
+@import '../helpers/mixin';
+.xg-main-tabs {
+    width: $max-size;
+    height: 2.4rem;
+    background-color: $color-white;
+    color: $font-color-1;
+    box-shadow: 0 0 0.5rem #999;
+    @include container-position(absolute, null, 0, null, 0);
+    @include set-index-level(7);
+    @include layout-vertical-center();
+    @include layout-horizontal-center();
+    @include padding-symmetry(0, 3.1rem);
+    ul {
+        height: 2.4rem;
+        @include layout-row();
+        li {
+            height: 2.4rem;
+            text-align: center;
+            @include layout-column();
+            .main-tab-icon {
+                width: 2.7rem;
+                height: 2.7rem;
+                border-radius: 100%;
+                box-shadow: 0 0 0.4rem #999;
+                background-color: $color-white;
+                @include padding-symmetry(0, 0.3rem);
+                @include margin-symmetry(0, 1.8rem);
+                @include container-position(relative, -1.35rem, null, null, null);
+            }
+            .tab-icon {
+                width: 1rem;
+                height: 1.4rem;
+            }
+            .grab-tab-active-icon {
+                @include set-icon('../img/grab-tab-active.png', 2.1rem, 2.1rem);
+            }
+            .order-tab-active-icon {
+                @include set-icon('../img/order-tab-active.png', 1rem, 1rem);
+            }
+            .my-tab-active-icon {
+                @include set-icon('../img/my-tab-active.png', 1rem, 1rem);
+            }
+            .grab-tab-inactive-icon {
+                @include set-icon('../img/grab-tab-inactive.png', 2.1rem, 2.1rem);
+            }
+            .order-tab-inactive-icon {
+                @include set-icon('../img/order-tab-inactive.png', 1rem, 1rem);
+            }
+            .my-tab-inactive-icon {
+                @include set-icon('../img/my-tab-inactive.png', 1rem, 1rem);
+            }
+            span {
+                height: 1rem;
+                font-size: 0.6rem;
+                color: $font-color-2;
+                @include layout-vertical-center();
+                @include layout-horizontal-center();
+            }
+            .main-tab-txt {
+                @include container-position(relative, -0.65rem, null, null, null);
+            }
+        }
+    }
+}

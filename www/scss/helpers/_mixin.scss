@@ -1,0 +1,175 @@
+@import '../base/_variable';
+%layout {
+    display: flex;
+    display: -webkit-flex;
+}
+
+@mixin container-size($width: $base-size, $height: $base-size) {
+    width: $width;
+    height: $height;
+}
+
+@mixin container-bg-font-color($bg-color, $font-color) {
+    background-color: $bg-color;
+    color: $font-color;
+}
+
+@mixin container-position($position, $top, $left, $right, $bottom) {
+    position: $position;
+    @if $top {
+        top: $top;
+    }
+    @if $left {
+        left: $left;
+    }
+    @if $right {
+        right: $right;
+    }
+    @if $bottom {
+        bottom: $bottom;
+    }
+}
+
+@mixin set-index-level($level: 1) {
+    @if $level==1 {
+        z-index: 1000
+    }
+    @else if $level==2 {
+        z-index: 2000
+    }
+    @else if $level==3 {
+        z-index: 3000
+    }
+    @else if $level==4 {
+        z-index: 4000
+    }
+    @else if $level==5 {
+        z-index: 5000
+    }
+    @else if $level==6 {
+        z-index: 6000
+    }
+    @else if $level==7 {
+        z-index: 7000
+    }
+    @else if $level==8 {
+        z-index: 8000
+    }
+    @else if $level==9 {
+        z-index: 9000
+    }
+    @else if $level==10 {
+        z-index: 10000
+    }
+}
+
+@mixin set-icon($image-url, $width, $height, $bg-position: center) {
+    background-image: url($image-url);
+    background-position: $bg-position;
+    background-repeat: no-repeat;
+    background-size: $width $height;
+}
+
+@mixin layout-row() {
+    @extend %layout;
+    flex-direction: row;
+    -ms-flex-direction: row;
+}
+
+@mixin layout-column() {
+    @extend %layout;
+    flex-direction: column;
+    -ms-flex-direction: column;
+}
+
+@mixin layout-vertical-center() {
+    @extend %layout;
+    align-items: center;
+}
+
+@mixin layout-horizontal-center() {
+    @extend %layout;
+    justify-content: center;
+}
+
+@mixin layout-between-nowrap() {
+    @extend %layout;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+}
+
+@mixin layout-between-wrap() {
+    @include layout();
+    justify-content: space-between;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+}
+
+@mixin border-all-round($border-side: 'all', $border-size: $default-border-width, $border-type: $default-border-style, $border-color: $bg-color-black) {
+    @if $border-side=='all' {
+        border: $border-size $border-type $border-color;
+    }
+    @else if $border-side=='top' {
+        border-top: $border-size $border-type $border-color;
+    }
+    @else if $border-side=='left' {
+        border-left: $border-size $border-type $border-color;
+    }
+    @else if $border-side=='right' {
+        border-right: $border-size $border-type $border-color;
+    }
+    @else if $border-side=='bottom' {
+        border-bottom: $border-size $border-type $border-color;
+    }
+}
+
+@mixin margin-symmetry($margin-size-1: $default-margin-width, $margin-size-2: $default-margin-width) {
+    margin: $margin-size-1 $margin-size-2;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+@mixin margin-all-round($margin-side: 'all', $margin-size: $default-margin-width) {
+    @if $margin-side=='top' {
+        margin-top: $margin-size;
+    }
+    @else if $margin-side=='left' {
+        margin-left: $margin-size;
+    }
+    @else if $margin-side=='right' {
+        margin-right: $margin-size;
+    }
+    @else if $margin-side=='bottom' {
+        margin-bottom: $margin-size;
+    }
+    @else {
+        margin: $margin-size;
+    }
+}
+
+@mixin padding-symmetry($padding-size-1: $default-padding-width, $padding-size-2: $default-padding-width) {
+    padding: $padding-size-1 $padding-size-2;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+@mixin padding-all-round($padding-side: 'all', $padding-size: $default-padding-width) {
+    @if $padding-side=='top' {
+        padding-top: $padding-size;
+    }
+    @else if $padding-side=='left' {
+        padding-left: $padding-size;
+    }
+    @else if $padding-side=='right' {
+        padding-right: $padding-size;
+    }
+    @else if $padding-side=='bottom' {
+        padding-bottom: $padding-size;
+    }
+    @else {
+        padding: $padding-size;
+    }
+}
