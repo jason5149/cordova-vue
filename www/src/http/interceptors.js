@@ -1,16 +1,44 @@
-import StorageTool from '../tools/local_storage';
+import { getToken, setToken, getAccountInfo, setAccountInfo, getWorkerInfos, setWorkerInfos } from '../service/account_service';
 
-module.exports = function(request, next) {
+export default function(request, next) {
 
-    console.log(request);
-
-    console.log(StorageTool.fetch());
+    request.headers['token'] = accountToken;
 
     next((response) => {
+        var token = null;
+        var account_info = null;
+        var worker_infos = null;
 
-        console.log(StorageTool.save());
+        if (response.data) {
+            account_info = response.data.account_info;
+            worker_infos = response.data.worker_infos;
 
-        console.log(response, response.headers, response.headers.map, response.headers.map.Token);
+            if (response.headers.map.token.length > 0) {
+                token = response.headers.map.token[0];
+            }
 
+            if (account_info) {
+                setAccountInfo(account_info);
+
+                if (token) {
+                    setToken(account_info.username, token);
+                }
+            }
+
+            if (worker_infos.length > 0) {
+                setWorkerInfos(worker_infos);
+            }
+        }
     })
+}
+
+var accountToken = function() {
+    var account_info = getAccountInfo();
+    var token = '';
+
+    if (account_info) {
+        token = getToken(account_info.username);
+    }
+
+    return token;
 }

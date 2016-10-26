@@ -16,6 +16,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <preference name="BackupWebStorage" value="local"/>
     <preference name="StatusBarBackgroundColor" value="#4a7ee8" />
     <preference name="StatusBarStyle" value="blacktranslucent"/>
     <preference name="StatusBarOverlaysWebview" value="false"/>

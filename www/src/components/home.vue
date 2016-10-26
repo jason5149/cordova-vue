@@ -11,7 +11,7 @@
 <script>
     import MainHeader from './header';
     import MainTabs from './main_tabs';
-    import CONSTANT from '../config';
+    import CONSTANT from '../constant';
 
     export default {
         data() {
